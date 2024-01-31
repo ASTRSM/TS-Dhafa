@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Unbounded:wght@200;300;400;600&display=swap');
+
+/* ordering properties
+1. display, position, float, etc.
+2. width, height, etc.
+3. margin, padding
+4. border, background, etc.
+5. text, fonts, etc.
+6. others */
+
+:root {
+  --bg-color: #111111;
+
+  --main-font: 'Inter', sans-serif;
+  --stylized-font: 'Unbounded', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  color: white;
+  font-family: var(--main-font);
+}
+
+/* removing element's default styles */
+a {
+  display: block;
+  text-decoration: inherit;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* global custom class */
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-x-margin {
+  margin: 0 6rem;
+}
+
+.main-y-margin {
+  margin: 4rem 0;
+}
+
+/* navigation bar */
+
+nav {
+  display: flex;
+  outline: solid white 2px;
+  position: relative;
+}
+
+#nav-left-side {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  z-index: 99;
+}
+
+#nav-logo-wrapper {
+  justify-content: space-around;
+  width: 100%;
+  padding: 3rem 2rem;
+  font-family: var(--stylized-font)
+}
+
+#nav-logo-wrapper #nav-logo {
+  gap: 1rem;
+}
+
+#nav-logo-wrapper>p {
+  font-size: .7rem;
+}
+
+#nav-link-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  outline: solid white 2px;
+}
+
+#nav-link-wrapper>div {
+  display: flex;
+  height: 100%;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 1rem;
+  outline: solid white 1px;
+  transition: all .3s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: white;
+  color: var(--bg-color);
+}
+
+#nav-link-wrapper div>div {
+  width: max-content;
+  padding: 1rem;
+  outline: solid white 1px;
+}
+
+#nav-link-wrapper div:last-child>div {
+  display: none;
+}
+
+#nav-link-wrapper .grow {
+  flex-grow: 1.5;
+}
+
+nav #hamburger {
+  display: none;
+}
+
+@media (max-width: 1536px) {}
+
+@media (max-width: 1280px) {
+  #nav-left-side {
+    width: auto;
+  }
+
+  #nav-logo-wrapper>p:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  nav {
+    flex-direction: column;
+    outline: none;
+  }
+
+  nav #hamburger {
+    display: flex;
+  }
+
+  #nav-left-side {
+    max-width: none;
+    margin-bottom: 1rem;
+    outline: solid white 2px;
+  }
+
+  #nav-logo-wrapper {
+    padding: 1rem;
+    flex-grow: 2;
+  }
+
+  #nav-link-wrapper {
+    position: absolute;
+    top: -100%;
+    opacity: 0;
+    background: var(--bg-color);
+    transition: all .5s ease-out;
+  }
+
+  #nav-link-wrapper div:first-child>div {
+    display: none;
+  }
+
+  #nav-link-wrapper div:last-child>div {
+    display: flex;
+    width: 100%;
+  }
+
+  #nav-link-wrapper>div {
+    flex-direction: column;
+  }
+
+  #nav-link-wrapper.active {
+    top: 100%;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 640px) {
+  .main-x-margin {
+    margin: 0 1rem;
+  }
+
+  .main-y-margin {
+    margin: 2rem 0;
+  }
+}
