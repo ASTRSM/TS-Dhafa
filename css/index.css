@@ -11,9 +11,11 @@
 :root {
   --bg-color: #111111;
   --bg-transparent: #1111119c;
+  --bg-grey: #202020;
   --gradient-color-primary: rgba(184, 119, 255, 1);
   --gradient-color-secondary: rgba(249, 131, 233, 1);
   --gradient-color-tertiary: rgba(198, 241, 247, 1);
+  --on-bg: #E4E4E4;
 
   --main-font: 'Inter', sans-serif;
   --stylized-font: 'Unbounded', sans-serif;
@@ -30,6 +32,7 @@ html {
   background-color: var(--bg-color);
   color: white;
   font-family: var(--main-font);
+  scroll-behavior: smooth;
 }
 
 /* removing element's default styles */
@@ -68,12 +71,12 @@ ul {
   align-items: center;
 }
 
-.main-x-margin {
+.main-y-margin {
   margin-top: 6rem;
   margin-bottom: 6rem;
 }
 
-.main-y-margin {
+.main-x-margin {
   margin-left: 4rem;
   margin-right: 4rem;
 }
@@ -88,16 +91,14 @@ ul {
   font-size: 5rem;
 }
 
-.line-wave-top {
+.line-wave {
   position: relative;
 }
 
-.line-wave-top:before {
-  content: "~~~~~~~~~~~~~~~";
+.line-wave:before {
+  content: "~~~~~~~~~~~~~~~~~~";
   width: 100%;
   position: absolute;
-  top: -12px;
-  left: -1px;
   font-family: monospace;
   font-size: 3rem;
   font-weight: 700;
@@ -108,6 +109,16 @@ ul {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.line-wave-top:before {
+  top: -12px;
+  left: -1px;
+}
+
+.line-wave-bottom:before {
+  bottom: -24px;
+  left: -1px;
 }
 
 .text-background-full {
@@ -128,6 +139,22 @@ ul {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.text-background-left {
+  background: var(--gradient-color-tertiary);
+  background: linear-gradient(97deg, var(--gradient-color-primary) 20%, var(--gradient-color-secondary) 50%, var(--gradient-color-tertiary) 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: .9rem;
+  color: var(--on-bg);
 }
 
 header {
@@ -297,14 +324,61 @@ nav #hamburger {
   width: fit-content;
 }
 
-@media (max-width: 1536px) {}
+/* about us */
+#about-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 26em;
+}
+
+#about-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4rem;
+}
+
+#about-main-first, #about-main-third {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#about-main-first div:last-child {
+  display: none;
+}
+
+#about-main img {
+  margin: -2px;
+}
+
+#about-main p {
+  max-width: 480px;
+}
+
+#about-right {
+  flex-direction: column;
+  padding: 2rem 1rem;
+  background-color: var(--bg-grey);
+}
+
+.about-title-mobile {
+  display: none;
+}
+
+@media (max-width: 1536px) {
+  #about-us {
+    gap: 6rem;
+  }
+}
 
 @media (max-width: 1280px) {
   .title {
     font-size: 3rem;
   }
 
-  .line-wave-top:before {
+  .line-wave:before {
     font-size: 2rem;
     font-weight: 700;
   }
@@ -330,6 +404,10 @@ nav #hamburger {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  #about-right {
+    display: none;
   }
 }
 
@@ -385,15 +463,35 @@ nav #hamburger {
   }
 }
 
-@media (max-width: 768px) {}
-
-@media (max-width: 640px) {
-  .main-x-margin {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+@media (max-width: 768px) {
+  #about-main-first, #about-main-third {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
+  #about-main-first {
+    flex-direction: column-reverse;
+  }
+
+  #about-main-first div:last-child {
+    display: block;
+  }
+
+  #about-main-third div:first-child {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
   .main-y-margin {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .main-x-margin {
     margin-left: 2rem;
     margin-right: 2rem;
   }
@@ -406,9 +504,24 @@ nav #hamburger {
     font-size: 2rem;
   }
 
-  .line-wave-top:before {
+  .line-wave:before {
     font-size: 2rem;
     font-weight: 500;
+  }
+
+  .line-wave-top:before {
     top: -16px;
+  }
+
+  .line-wave-bottom:before {
+    bottom: -18px;
+  }
+
+  .about-title-mobile {
+    display: inline-block;
+  }
+
+  .about-title-desktop {
+    display: none;
   }
 }
