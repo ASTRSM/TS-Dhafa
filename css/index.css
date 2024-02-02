@@ -59,6 +59,12 @@ input[type="reset"] {
   outline: inherit;
 }
 
+h2 {
+  font-family: var(--stylized-font);
+  font-weight: 300;
+  font-size: 2.5rem;
+}
+
 ul {
   list-style-type: none;
 }
@@ -170,10 +176,7 @@ ul {
 }
 
 header {
-  background-image: url('../images/bg_hero.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  position: relative;
 }
 
 #hero {
@@ -337,7 +340,7 @@ nav #hamburger {
 }
 
 /* about us */
-#about-us {
+#about-detail {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -351,7 +354,8 @@ nav #hamburger {
   gap: 4rem;
 }
 
-#about-main-first, #about-main-third {
+#about-main-first,
+#about-main-third {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -379,8 +383,53 @@ nav #hamburger {
   display: none;
 }
 
+#about-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 12rem;
+}
+
+#about-list li {
+  position: relative;
+  overflow: hidden;
+}
+
+#about-list li div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  max-height: 640px;
+  padding: 4rem;
+  padding-top: 12rem;
+}
+
+#about-list .background {
+  transform: scale(200%);
+}
+
+#about-list li:nth-child(1) .background {
+  transform: rotate(50deg) scale(400%) translate(30%, -10%);
+}
+
+#about-list li:nth-child(2) .background {
+  transform: rotate(60deg) scale(400%) translate(-10%, 0);
+}
+
+#about-list li:nth-child(3) .background {
+  transform: rotate(120deg) scale(500%) translate(20%, 10%);
+}
+
+#about-list li:nth-child(4) .background {
+  transform: rotate(0) scale(300%) translate(10%, 10%);
+}
+
+#about-list li p {
+  max-width: 320px;
+}
+
 @media (max-width: 1536px) {
-  #about-us {
+  #about-detail {
     gap: 6rem;
   }
 }
@@ -423,11 +472,7 @@ nav #hamburger {
   }
 }
 
-@media (max-width: 1024px) {
-  header {
-    background-position: 40% 75%;
-  }
-
+@media (max-width: 1024px) {  
   nav {
     flex-direction: column;
     outline: none;
@@ -473,10 +518,21 @@ nav #hamburger {
     top: 100%;
     opacity: 1;
   }
+
+  #about-list {
+    grid-template-columns: 1fr;
+    margin-top: 4rem;
+  }
+
+  #about-list li div {
+    padding: 4rem;
+  }
 }
 
 @media (max-width: 768px) {
-  #about-main-first, #about-main-third {
+
+  #about-main-first,
+  #about-main-third {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
