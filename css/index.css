@@ -822,7 +822,16 @@ nav #hamburger {
   }
 
   #slider {
-    margin: 2rem;
+    margin: 0;
+  }
+
+  .slick-list {
+    margin: 2rem 0 0 0 !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .slick-arrow {
+    display: none !important;
   }
 
   .slider-content {
