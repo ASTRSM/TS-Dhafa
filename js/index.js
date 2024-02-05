@@ -1,8 +1,14 @@
 // hamburger
-const hamburgerMenu = document.querySelector('#nav-link-wrapper')
+const headerHamburger = document.querySelector('header #nav-link-wrapper')
+const footerHamburger = document.querySelector('footer #nav-link-wrapper')
 
-document.querySelector('#hamburger').addEventListener('click', (e) => {
-  hamburgerMenu.classList.toggle('active')
+document.querySelector('header #hamburger').addEventListener('click', (e) => {
+  headerHamburger.classList.toggle('active')
+})
+
+document.querySelector('footer #hamburger').addEventListener('click', (e) => {
+  document.querySelector('footer').classList.toggle('active')
+  footerHamburger.classList.toggle('active')
 })
 
 // tabbling event
@@ -45,6 +51,6 @@ $(document).ready(function () {
     speed: 300,
     slidesToShow: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 8000,
   })
 })

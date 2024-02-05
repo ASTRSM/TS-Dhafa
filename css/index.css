@@ -208,6 +208,14 @@ nav {
   z-index: 99;
 }
 
+footer #nav-left-side {
+  flex-direction: column;
+}
+
+footer #nav-left-side>div:last-child {
+  display: flex;
+}
+
 #nav-logo-wrapper {
   justify-content: space-around;
   width: 100%;
@@ -266,6 +274,10 @@ nav {
 }
 
 nav #hamburger {
+  display: none;
+}
+
+nav #privacy-policy {
   display: none;
 }
 
@@ -742,6 +754,18 @@ nav #hamburger {
 }
 
 @media (max-width: 1024px) {
+  footer {
+    overflow: hidden;
+  }
+
+  footer.active {
+    overflow: visible;
+  }
+
+  nav #privacy-policy {
+    display: flex;
+  }
+
   nav {
     flex-direction: column;
     outline: none;
@@ -768,6 +792,16 @@ nav #hamburger {
     background-color: var(--bg-color);
     opacity: 0;
     transition: all .5s ease-out;
+  }
+
+  footer #nav-link-wrapper {
+    top: 500px;
+  }
+
+  footer #nav-link-wrapper.active {
+    top: -500px;
+    bottom: 100%;
+    opacity: 1;
   }
 
   #nav-link-wrapper div:first-child>div {
