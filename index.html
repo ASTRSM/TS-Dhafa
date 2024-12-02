@@ -21,13 +21,6 @@
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDHPH9F1EE"></script>
-<script>
-  window.dataLayer = window.dataLayer || []
-  function gtag () { dataLayer.push(arguments) }
-  gtag('js', new Date())
-
-  gtag('config', 'G-CDHPH9F1EE');
-</script>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -47,6 +40,7 @@
               </a>
               <p>bespoke design and<br>marketing services</p>
             </div>
+            <button type="button" id="grant" class="nav-link">Grant</button>
             <button type='button' id='hamburger' class='nav-link'>
               MENU
             </button>
@@ -116,6 +110,22 @@
       </ul>
     </section>
   </header>
+
+  <dialog id="cookie-consent">
+    <div>
+      <form>
+        <label><input type="checkbox" name="ad_user_data" value="granted">User Data</label>
+        <label><input type="checkbox" name="ad_personalization" value="granted">Personalization</label>
+        <label><input type="checkbox" name="ad_storage" value="granted">Storage</label>
+        <label><input type="checkbox" name="analytics_storage" value="granted">Analytics</label>
+      </form>
+      <div>
+        <button autofocus id="accept-all-cookies">Accept All</button>
+        <button id="accept-cookies">Accept</button>
+        <button id="ignore-cookies">Close</button>
+      </div>
+    </div>
+  </dialog>
 
   <main>
     <section id='about-us' class='main-padding main-y-margin'>

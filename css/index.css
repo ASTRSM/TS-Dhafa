@@ -666,6 +666,24 @@ nav #privacy-policy {
   padding: 2rem 4rem 4rem 4rem;
 }
 
+#cookie-consent {
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border: none
+}
+
+#cookie-consent > div {
+  background: black;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+#cookie-consent * {
+  margin: 1rem;
+}
+
 @media (max-width: 1536px) {
   #about-detail {
     gap: 6rem;
